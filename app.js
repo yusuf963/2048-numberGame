@@ -9,10 +9,11 @@ const grid  = document.getElementById('grid-container')
 // building the  grid tiles
 const width = 4
 const tiles = []
+let tile 
 
 // rendering the grid tiles
 for (let i = 0; i < width * width; i++ ) {
-  const tile = document.createElement('div')  
+  tile = document.createElement('div')  
   grid.appendChild(tile)
   tile.innerHTML = 0
   tile.id = i + 1
@@ -23,22 +24,32 @@ for (let i = 0; i < width * width; i++ ) {
 
 //starting the game by clicking on the start game button
 button.addEventListener('click', () =>{
-//mapping over the grid tiles New array 
+  tiles.forEach(element => {
+    element.innerHTML = 0
+  
+  })
+  // grid.tile.innerHTML = 0
+  // console.log(tile)
+  //mapping over the grid tiles New array 
   const randomTile = tiles[Math.floor(Math.random() * tiles.length)]
 
   // rendering 2 or 4 value as number in 2 random tiles
   function appendingRandomVAlueInRandomTile(value){
-    const arrayValue = [2, 4]
-    const randomValue = arrayValue[Math.floor(Math.random() * arrayValue.length )]
-    value.append(randomValue)
-    //replacing the zero value with 2 or 4
-    value.innerHTML = randomValue
-  }
-  // rendering 2 or 4 value as number in 2 random tiles
-  appendingRandomVAlueInRandomTile(randomTile)
-  // console.log(randomTile)
-  //mapping over the grid tiles New array 
+    if ( value.innerHTML === '0'){
+      const arrayValue = [2, 4]
+      const randomValue = arrayValue[Math.floor(Math.random() * arrayValue.length )]
+      //replacing the zero value with 2 or 4
+      value.innerHTML = randomValue
+    } else {
+      value = tiles[Math.floor(Math.random() * tiles.length)]
+      console.log('same')
+    }
 
+  }
+  appendingRandomVAlueInRandomTile(randomTile)
+  console.log(randomTile)
+
+  //mapping over the grid tiles New array 
   let randomTileSd = tiles[Math.floor(Math.random() * tiles.length)]
   if ( randomTile === randomTileSd){
     randomTileSd = tiles[Math.floor(Math.random() * tiles.length)]
