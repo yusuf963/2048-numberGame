@@ -1,6 +1,9 @@
 const grid = document.getElementById('grid-container')
 const button = document.getElementById('new-game')
 const score = document.getElementById('score')
+const audio = document.getElementById('audio')
+
+console.log(audio)
 let points = 0
 const width = 4
 const gridTiles = []
@@ -139,20 +142,7 @@ button.addEventListener('click', () => {
       }
     }
   }
-  //changing tile color
-  function changeTileColor() {
-    for (let i = 0; i < gridTiles.length; i++) {
-      if (Number(gridTiles[i].innerHTML) >= 8) {
-        gridTiles[i].classList.add('white')
-      } else if (Number(gridTiles[i].innerHTML) >= 24) {
-        gridTiles[i].classList.remove('white')
-        gridTiles[i].classList.add('red')
-      } else if (Number(gridTiles[i].innerHTML) >= 48) {
-        gridTiles[i].classList.remove('red')
-        gridTiles[i].classList.add('yellow')
-      }
-    }
-  }
+
   function win() {
     for (let i = 0; i < gridTiles.length; i++) {
       if (gridTiles[i].innerHTML === '8') {
@@ -194,6 +184,7 @@ button.addEventListener('click', () => {
     // building4ArraysToRight()
     adding2ToTheOpeningBoard()
     changeTileColor()
+    audio.play()
   }
   function slidingLeft() {
     building4ArraysToLeft()
@@ -201,6 +192,7 @@ button.addEventListener('click', () => {
     // building4ArraysToLeft()
     adding2ToTheOpeningBoard()
     changeTileColor()
+    audio.play()
   }
   function slidngUp() {
     building4ArraysToUp()
@@ -208,6 +200,7 @@ button.addEventListener('click', () => {
     // building4ArraysToUp()
     adding2ToTheOpeningBoard()
     changeTileColor()
+    audio.play()
   }
   function slidingDown() {
     building4ArraysToDown()
@@ -215,5 +208,21 @@ button.addEventListener('click', () => {
     // building4ArraysToDown()
     adding2ToTheOpeningBoard()
     changeTileColor()
+    audio.play()
+  }
+
+  //changing tile color
+  function changeTileColor() {
+    for (let i = 0; i < gridTiles.length; i++) {
+      if (Number(gridTiles[i].innerHTML) >= 8) {
+        gridTiles[i].classList.add('yellow')
+      } else if (Number(gridTiles[i].innerHTML) >= 24) {
+        gridTiles[i].classList.remove('white')
+        gridTiles[i].classList.add('red')
+      } else if (Number(gridTiles[i].innerHTML) >= 48) {
+        gridTiles[i].classList.remove('red')
+        gridTiles[i].classList.add('yellow')
+      }
+    }
   }
 })
