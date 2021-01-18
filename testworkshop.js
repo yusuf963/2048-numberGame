@@ -30,6 +30,7 @@ button.addEventListener('click', () => {
   adding2ToTheOpeningBoard()
   adding2ToTheOpeningBoard()
 
+
   //sliding the tils
   function building4ArraysToRight() {
     for (let i = 0; i < gridTiles.length; i++) {
@@ -69,8 +70,6 @@ button.addEventListener('click', () => {
         gridTiles[i + 1].innerHTML = newRow[1]
         gridTiles[i + 2].innerHTML = newRow[2]
         gridTiles[i + 3].innerHTML = newRow[3]
-        console.log(emptyTile)
-
       }
     }
   }
@@ -126,6 +125,7 @@ button.addEventListener('click', () => {
         score.innerHTML = points
       }
     }
+
   }
   // adding the sum to the closest tile to the edge (with the sliding flow)
   function sumColTiles() {
@@ -139,7 +139,41 @@ button.addEventListener('click', () => {
       }
     }
   }
+  //changing tile color
+  function changeTileColor() {
+    for (let i = 0; i < gridTiles.length; i++) {
+      if (Number(gridTiles[i].innerHTML) >= 8) {
+        gridTiles[i].classList.add('white')
+      } else if (Number(gridTiles[i].innerHTML) >= 24) {
+        gridTiles[i].classList.remove('white')
+        gridTiles[i].classList.add('red')
+      } else if (Number(gridTiles[i].innerHTML) >= 48) {
+        gridTiles[i].classList.remove('red')
+        gridTiles[i].classList.add('yellow')
+      }
+    }
+  }
+  function win() {
+    for (let i = 0; i < gridTiles.length; i++) {
+      if (gridTiles[i].innerHTML === '8') {
+        alert('YOU WON')
+      }
+    }
+  }
+  win()
 
+  function lose() {
+    let count = 0
+    for (let j = 0; j < gridTiles.length; j++) {
+      if (gridTiles[j].innerHTML === '0') {
+        count++
+      }
+    }
+    if (count === 0) {
+      alert('YOU LOST')
+    }
+  }
+  lose()
   //event listerner
   function sliding(event) {
     if (event.keyCode === 39) {
@@ -157,22 +191,29 @@ button.addEventListener('click', () => {
   function slidingRight() {
     building4ArraysToRight()
     sumRowTiles()
-    building4ArraysToRight()
+    // building4ArraysToRight()
     adding2ToTheOpeningBoard()
+    changeTileColor()
   }
   function slidingLeft() {
     building4ArraysToLeft()
     sumRowTiles()
-    building4ArraysToLeft()
+    // building4ArraysToLeft()
+    adding2ToTheOpeningBoard()
+    changeTileColor()
   }
   function slidngUp() {
     building4ArraysToUp()
     sumColTiles()
-    building4ArraysToUp()
+    // building4ArraysToUp()
+    adding2ToTheOpeningBoard()
+    changeTileColor()
   }
   function slidingDown() {
     building4ArraysToDown()
     sumColTiles()
-    building4ArraysToDown()
+    // building4ArraysToDown()
+    adding2ToTheOpeningBoard()
+    changeTileColor()
   }
 })
