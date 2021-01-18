@@ -1,6 +1,7 @@
 const grid = document.getElementById('grid-container')
 const button = document.getElementById('new-game')
 const score = document.getElementById('score')
+let points = 0
 const width = 4
 const gridTiles = []
 let tile
@@ -13,7 +14,6 @@ function adding2ToTheOpeningBoard() {
     adding2ToTheOpeningBoard()
   }
 }
-
 //building the grid at the opening board game
 for (let i = 0; i < width * width; i++) {
   tile = document.createElement('div')
@@ -27,7 +27,6 @@ button.addEventListener('click', () => {
   gridTiles.forEach((tile) => {
     tile.innerHTML = 0
   })
-
   adding2ToTheOpeningBoard()
   adding2ToTheOpeningBoard()
 
@@ -51,7 +50,6 @@ button.addEventListener('click', () => {
       }
     }
   }
-  building4ArraysToRight()
 
   //sliding to left
   function building4ArraysToLeft() {
@@ -61,6 +59,7 @@ button.addEventListener('click', () => {
         const secondCol = gridTiles[i + 1].innerHTML
         const thirdCol = gridTiles[i + 2].innerHTML
         const fourthCol = gridTiles[i + 3].innerHTML
+        //giting neew array of number with 4 rows
         const rows = [Number(firstCol), Number(secondCol), Number(thirdCol), Number(fourthCol)]
         const sortedRow = rows.filter(number => number > 0)
         const emptyTile = 4 - sortedRow.length
@@ -74,16 +73,15 @@ button.addEventListener('click', () => {
 
       }
     }
-  } building4ArraysToLeft()
-
-
+  }
   // sliding down
-  function slidingDown() {
+  function building4ArraysToDown() {
     for (let i = 0; i < 4; i++) {
       const firstCol = gridTiles[i].innerHTML
       const secondCol = gridTiles[i + width].innerHTML
       const thirdCol = gridTiles[i + width * 2].innerHTML
       const fourthCol = gridTiles[i + width * 3].innerHTML
+      //giting neew array of number with 4 column
       const col = [Number(firstCol), Number(secondCol), Number(thirdCol), Number(fourthCol)]
 
       const sortedCol = col.filter(number => number > 0)
@@ -98,7 +96,7 @@ button.addEventListener('click', () => {
   }
 
   //sliding up 
-  function slidingDown() {
+  function building4ArraysToUp() {
     for (let i = 0; i < 4; i++) {
       const firstCol = gridTiles[i].innerHTML
       const secondCol = gridTiles[i + width].innerHTML
@@ -117,16 +115,31 @@ button.addEventListener('click', () => {
     }
   }
 
-
   // adding the sum to the closest tile to the edge (with the sliding flow)
   function sumRowTiles() {
     for (let i = 0; i < 15; i++) {
       if (gridTiles[i].innerHTML === gridTiles[i + 1].innerHTML) {
         const total = Number(gridTiles[i].innerHTML) + Number(gridTiles[i + 1].innerHTML)
         gridTiles[i].innerHTML = total
+        gridTiles[i + 1].innerHTML = 0
+        points += total
+        score.innerHTML = points
       }
     }
   }
+  // adding the sum to the closest tile to the edge (with the sliding flow)
+  function sumColTiles() {
+    for (let i = 0; i < 12; i++) {
+      if (gridTiles[i].innerHTML === gridTiles[i + width].innerHTML) {
+        const total = Number(gridTiles[i].innerHTML) + Number(gridTiles[i + width].innerHTML)
+        gridTiles[i].innerHTML = total
+        gridTiles[i + width].innerHTML = 0
+        points += total
+        score.innerHTML = points
+      }
+    }
+  }
+
   //event listerner
   function sliding(event) {
     if (event.keyCode === 39) {
@@ -153,14 +166,13 @@ button.addEventListener('click', () => {
     building4ArraysToLeft()
   }
   function slidngUp() {
-    building4ArraysToLeft()
-    sumRowTiles()
-    building4ArraysToLeft()
+    building4ArraysToUp()
+    sumColTiles()
+    building4ArraysToUp()
   }
   function slidingDown() {
-    building4ArraysToLeft()
-    sumRowTiles()
-    building4ArraysToLeft()
+    building4ArraysToDown()
+    sumColTiles()
+    building4ArraysToDown()
   }
-
 })
