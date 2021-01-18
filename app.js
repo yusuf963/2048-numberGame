@@ -3,12 +3,11 @@ const button = document.getElementById('new-game')
 const score = document.getElementById('score')
 const grid = document.getElementById('grid-container')
 
-
-
 // open Board start
 // building the  grid tiles
 const width = 4
 let tiles = []
+console.log(tiles)
 let tile
 let appendingRandomVAlueInRandomTile
 // rendering the grid tiles
@@ -28,9 +27,9 @@ button.addEventListener('click', () => {
   })
   //mapping over the grid tiles New array 
   const randomTile = tiles[Math.floor(Math.random() * tiles.length)]
-
   // rendering 2 or 4 value as number in 2 random tiles
   function appendingRandomVAlueInRandomTile(randomTileParameter) {
+
     let valueOf2r4
     if (randomTileParameter.innerHTML === '0') {
       const arrayValue = [2, 4]
@@ -43,20 +42,40 @@ button.addEventListener('click', () => {
     }
   }
   appendingRandomVAlueInRandomTile(randomTile)
-
   //mapping over the grid tiles New array 
   let randomTileSd = tiles[Math.floor(Math.random() * tiles.length)]
   if (randomTile === randomTileSd) {
     randomTileSd = tiles[Math.floor(Math.random() * tiles.length)]
   }
   appendingRandomVAlueInRandomTile(randomTileSd)
-
+  tiles = []
+  console.log(tiles)
 })
 //open board finish
 
-console.log(tiles)
 
 // sliding rights, left, up and down starts
+
+
+//addin 2 during the game running
+// add 2 to the tile in the grid 
+//make sure the tile dosent contain number geater than 0
+grid.addEventListener('click', () => {
+  const arr = []
+  tiles.map((element) => {
+    if (element.innerHTML === '0') {
+      arr.push(element)
+    }
+  })
+  const adding2InRandomTile = Math.floor(Math.random() * arr.length)
+  arr[adding2InRandomTile].innerHTML = 2
+  // arr.map((element) => {
+  // if (!element.every()) {
+  //   console.log('its over')
+  // }
+  // })
+})
+
 let tstArray = []
 const firstRow = []
 const secondRow = []
@@ -75,30 +94,20 @@ function building4Arrays() {
       fourthRow.push(tiles[i].innerHTML)
     }
   }
-  tstArray = [firstRow, secondRow, thirdRow, fourthRow]
+  const firstRowNum = firstRow.map((str) => Number(str))
+  const secondRowNum = secondRow.map((str) => Number(str))
+  const thirdRowNum = thirdRow.map((str) => Number(str))
+  const fourthRowNum = fourthRow.map((str) => Number(str))
+
+  tstArray = [firstRowNum, secondRowNum, thirdRowNum, fourthRowNum]
   console.log(tstArray)
   return tstArray
 }
 building4Arrays()
 
-//addin 2 during the game running
-// add 2 to the tile in the grid 
-//make sure the tile dosent contain number geater than 0
-grid.addEventListener('click', () => {
-  const arr = []
-  tiles.map((element) => {
-    if (element.innerHTML === '0') {
-      arr.push(element)
-    }
-  })
-  const adding2InRandomTile = Math.floor(Math.random() * arr.length)
-  arr[adding2InRandomTile].innerHTML = 2
-  arr.map((element) => {
-    if (!element.every()) {
-      console.log('its over')
-    }
-  })
-})
+
+
+
 
 //slidding
 // function userInput(e) {
