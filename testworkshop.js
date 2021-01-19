@@ -2,12 +2,14 @@ const grid = document.getElementById('grid-container')
 const button = document.getElementById('new-game')
 const score = document.getElementById('score')
 const audio = document.getElementById('audio')
+const camAudio = document.getElementById('cam-audio')
 
 console.log(audio)
 let points = 0
 const width = 4
 const gridTiles = []
 let tile
+let count = 0
 // addin 2 or 4 to random tile position
 function adding2ToTheOpeningBoard() {
   const randomTile = gridTiles[Math.floor(Math.random() * gridTiles.length)]
@@ -145,8 +147,9 @@ button.addEventListener('click', () => {
 
   function win() {
     for (let i = 0; i < gridTiles.length; i++) {
-      if (gridTiles[i].innerHTML === '8') {
+      if (gridTiles[i].innerHTML === '2048') {
         alert('YOU WON')
+        window.location.reload()
       }
     }
   }
@@ -161,6 +164,7 @@ button.addEventListener('click', () => {
     }
     if (count === 0) {
       alert('YOU LOST')
+      window.location.reload()
     }
   }
   lose()
@@ -176,53 +180,96 @@ button.addEventListener('click', () => {
       slidingDown()
     }
   }
+
+  function takingPic() {
+    for (let i = 0; i < gridTiles.length; i++) {
+      if (Number(gridTiles[i].innerHTML) === 8) {
+        if (count === 0) {
+          alert('wow you reached high number, press ok to take a photo and continue playing, don\'t forget to simle🥳')
+          camAudio.play()
+        }
+        count++
+      }
+    }
+  }
+
+  function changeTileColor() {
+    for (let i = 0; i < gridTiles.length; i++) {
+      if (Number(gridTiles[i].innerHTML) === 8) {
+        gridTiles[i].classList.add('white')
+      } else if (Number(gridTiles[i].innerHTML) === 12) {
+        gridTiles[i].classList.remove('white')
+        gridTiles[i].classList.add('brown')
+      } else if (Number(gridTiles[i].innerHTML) === 16) {
+        gridTiles[i].classList.remove('brown')
+        gridTiles[i].classList.add('yellow')
+      } else if (Number(gridTiles[i].innerHTML) === 20) {
+        gridTiles[i].classList.remove('yellow')
+        gridTiles[i].classList.add('green')
+      } else if (Number(gridTiles[i].innerHTML) === 24) {
+        gridTiles[i].classList.remove('green')
+        gridTiles[i].classList.add('iris')
+      } else if (Number(gridTiles[i].innerHTML) === 28) {
+        gridTiles[i].classList.remove('iris')
+        gridTiles[i].classList.add('bamboo')
+      } else if (Number(gridTiles[i].innerHTML) === 32) {
+        gridTiles[i].classList.remove('bamboo')
+        gridTiles[i].classList.add('ecstasy')
+      } else if (Number(gridTiles[i].innerHTML) <= 6) {
+        gridTiles[i].classList.remove('red')
+        gridTiles[i].classList.remove('yellow')
+        gridTiles[i].classList.remove('white')
+        gridTiles[i].classList.remove('brown')
+        gridTiles[i].classList.remove('green')
+        gridTiles[i].classList.remove('iris')
+        gridTiles[i].classList.remove('bamboo')
+        gridTiles[i].classList.remove('ecstasy')
+      }
+    }
+  }
   document.addEventListener('keyup', sliding)
 
   function slidingRight() {
     building4ArraysToRight()
     sumRowTiles()
-    // building4ArraysToRight()
     adding2ToTheOpeningBoard()
     changeTileColor()
     audio.play()
+    win()
+    lose()
+    takingPic()
   }
   function slidingLeft() {
     building4ArraysToLeft()
     sumRowTiles()
-    // building4ArraysToLeft()
     adding2ToTheOpeningBoard()
     changeTileColor()
     audio.play()
+    win()
+    lose()
+    takingPic()
   }
   function slidngUp() {
     building4ArraysToUp()
     sumColTiles()
-    // building4ArraysToUp()
     adding2ToTheOpeningBoard()
     changeTileColor()
     audio.play()
+    win()
+    lose()
+    takingPic()
   }
   function slidingDown() {
     building4ArraysToDown()
     sumColTiles()
-    // building4ArraysToDown()
     adding2ToTheOpeningBoard()
     changeTileColor()
     audio.play()
+    win()
+    lose()
+    takingPic()
   }
 
   //changing tile color
-  function changeTileColor() {
-    for (let i = 0; i < gridTiles.length; i++) {
-      if (Number(gridTiles[i].innerHTML) >= 8) {
-        gridTiles[i].classList.add('yellow')
-      } else if (Number(gridTiles[i].innerHTML) >= 24) {
-        gridTiles[i].classList.remove('white')
-        gridTiles[i].classList.add('red')
-      } else if (Number(gridTiles[i].innerHTML) >= 48) {
-        gridTiles[i].classList.remove('red')
-        gridTiles[i].classList.add('yellow')
-      }
-    }
-  }
+
 })

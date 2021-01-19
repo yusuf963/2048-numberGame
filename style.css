@@ -1,22 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
 *{
-  padding: 0%;
-  margin: 0%;
+  padding: 0px;
+  margin: 0px;
   box-sizing: border-box;
 }
 body{
-  background-color:whitesmoke
+  padding: 0px;
+  margin: 0px;
+  background-color:whitesmoke;
+  box-sizing: border-box;
 }
 /* banner */
 .banner{
   max-width: 60vw;
-  margin:50px auto;
+  margin:30px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 h1{
-  color:#78472b;
-  font-weight: bold;
-  font-size: 26px;
+  font-family: 'Merriweather', serif;
+  font-size: 36px;
+  color:#F9690E
 }
 p{
   color:#78472b;
@@ -24,6 +28,7 @@ p{
 }
 h1, button, p{
   height: 40px;
+  
 }
 
 button {
@@ -70,32 +75,57 @@ button:active {
   font-weight: bold;
   font-size: 3rem;
  background-color: #dcb6a0 ;
+ text-align: center;
 }
 
 
 .white{
-  background-color: white;
+  background-color: #DEDACB;
 }
 .red{
-  background-color: #686f33;
+  background-color:#DCB821;
 }
-.red{
+.yellow{
+  background-color: #FAF9D3;
+}
+.brown{
   background-color: #6f5833;
 }
+.green{
+  background-color: #53F613;
+}
+.iris{
+  background-color: #763568;
+}
+.bamboo{
+  background-color: #006442;
+}
+.ecstasy{
+  background-color: #F9690E;
+}
+
+footer{
+  display: flex;
+  justify-content:space-around;
+  margin: 30px auto;
+  font-size: 10px;
+  text-align: center;
+}
+
 /* grid container ends */
 /* media queries */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   .banner{
     max-width: 90vw;
     margin:50px auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   h1{
     color:#78472b;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
   }
   p{
     color:#78472b;
@@ -103,38 +133,37 @@ button:active {
     font-size:10px
   }
   h1, button, p{
-    height: 40px;
+    padding:10px
   }
   #grid-container{
     display: flex;
     flex-wrap: wrap;
-    /* max-width: 400px; */
-    height: 300px;
-    margin:60px 27px;
+    max-width: 300px;
+    max-height: 300px;
+    /* margin:60px 20px; */
     /* padding: 0 auto; */
   }
   .tile-styled{
-    width: 80px;
-    height: 100px;
-    /* margin: auto; */
+    width: 75px;
+    height: 75px;
+    margin: auto;
     border: 4px solid #f1e1d8;
     text-align: center;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
    background-color: #dcb6a0 ;
   }
   button {
     font-size:10px;
     font-weight:bold;
-    padding:6px 24px;
+    margin-right: 20px;
     text-decoration:none;
     text-shadow:0px 1px 0px #ffee66;
     outline-style: none;
-    width:70px;
+    width:60px;
     text-align: center;
   }
   .how-to-play{
     font-size:10px;
-    font-weight:bold;
   }
 }
