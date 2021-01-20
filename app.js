@@ -310,3 +310,51 @@ button.addEventListener('click', () => {
   }
   alert('your last Score was ' + localStorage.dataPoints + ', try to beat it this time')
 })
+
+//switching to Dark mode
+const mode = document.getElementById('mode')
+const body = document.querySelector('body')
+const p = document.querySelectorAll('p')
+console.log(p)
+mode.addEventListener('click', () => {
+  if (mode.innerHTML === 'Dark') {
+    body.classList.add('dark')
+    score.classList.add('el-dark')
+    h4.classList.add('el-dark')
+    p[0].classList.add('el-dark')
+    p[1].classList.add('el-dark')
+    p[2].classList.add('el-dark')
+    p[3].classList.add('el-dark')
+    mode.innerHTML = 'Light'
+
+  } else {
+    body.classList.remove('dark')
+    score.classList.remove('el-dark')
+    h4.classList.remove('el-dark')
+    p[0].classList.remove('el-dark')
+    p[1].classList.remove('el-dark')
+    p[2].classList.remove('el-dark')
+    p[3].classList.remove('el-dark')
+    mode.innerHTML = 'Dark'
+  }
+})
+
+// const switchTheme = (event) => {
+//   if (event.target.checked) {
+//     localStorage.setItem('theme', 'dark')
+//     darkMode()
+//   } else {
+//     localStorage.setItem('theme', 'light')
+//     lightMode()
+//   }
+// }
+
+// Event Listenre
+//localstorage
+// const currentTheme = localStorage.getItem('theme')
+// if (currentTheme)
+//   document.documentElement.setAttribute('data-theme', currentTheme)
+// if (currentTheme === 'dark') {
+//   toggleSwitch.checked = true
+//   darkMode()
+// }

@@ -1,8 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
+root {
+  --primary-color: rgb(255, 92, 92);
+  --primary-variant: #ff2d2d;
+  --secondary-color: #1b9999;
+  --on-primary: rgb(250, 250, 250);
+  --on-background: rgb(66, 66, 66);
+  --on-background-alt: rgba(66, 66, 66, 0.7);
+  --background: rgb(255, 255, 255);
+  --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] {
+  --primary-color: rgb(150, 65, 255);
+  --primary-variant: #6c63ff;
+  --secondary-color: #03dac5;
+  --on-primary: rgb(255, 255, 255);
+  --on-background: rgba(255, 255, 255, 0.9);
+  --on-background-alt: rgba(255, 255, 255, 0.7);
+  --background: #121212;
+}
+
 *{
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+}
+
+/* mode button */
+#mode{
+  margin:10px 0px 0px 20px;
+  font: size 6px;
+  height: 30px;
+
+}
+.dark{
+  background-color: #222222
+}
+.el-dark{
+  color: white;
 }
 body{
   padding: 0px;
@@ -164,5 +199,29 @@ footer{
   }
   .how-to-play{
     font-size:10px;
+  }
+  .white{
+    background-color: #DEDACB;
+  }
+  .red{
+    background-color:#DCB821;
+  }
+  .yellow{
+    background-color: #FAF9D3;
+  }
+  .brown{
+    background-color: #6f5833;
+  }
+  .green{
+    background-color: #53F613;
+  }
+  .iris{
+    background-color: #763568;
+  }
+  .bamboo{
+    background-color: #006442;
+  }
+  .ecstasy{
+    background-color: #F9690E;
   }
 }
