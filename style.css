@@ -76,6 +76,9 @@ button:active {
   background-color: #dcb6a0;
   text-align: center;
 }
+.flashing{
+  background-color:red
+}
 .white{
   background-color: #DEDACB;
 }
