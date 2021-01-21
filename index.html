@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" /> -->
   <link rel="stylesheet" href="style.css">
   <title>2048 Game</title>
 </head>
@@ -23,29 +21,15 @@
     <audio id="cam-audio" src="./shoot.mp3"></audio>
     <audio id="start-game" src="./start-game.mp3"></audio>
     <audio id="throwing-two" src="./bounce-diving.mp3"></audio>
-
-    <!-- hover me start here -->
-    <div class="dropdown is-hoverable">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-          <span class='how-to-play'>How To play</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-        <div class="dropdown-content">
-          <div class="dropdown-item">
-            <!-- <p>Use your arrow keys to move the tiles.<br> Tiles with the same number merge into one<br> when they touch.
-              Add
-              them up to reach 2048!</p> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- hover me ends here -->
+    <button class='how-to-play' id="how-to-play">How To play</button>
   </div>
+  <!-- hover me ends here -->
+  <div class="div-text">
+    <p class="learn-text" id="learn-text">Use your arrow keys to move the tiles.<br> Tiles with the same number merge
+      into one when
+      they touch.Add them up to reach 2048!</p>
+  </div>
+
   <!-- grid container start -->
   <div class="grid-container" id="grid-container"></div>
   <div class="control-container">

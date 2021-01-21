@@ -361,10 +361,11 @@ button.addEventListener('click', () => {
     takingPic()
     localStorage.setItem('dataPoints', storedScore)
   })
-
+  if (localStorage.dataPoints === undefined) {
+    alert('this if your first time playing this game, your score is 0')
+  }
   alert('your last Score was ' + localStorage.dataPoints + ', try to beat it this time')
 })
-
 //switching to Dark mode
 const mode = document.getElementById('mode')
 const body = document.querySelector('body')
@@ -377,7 +378,7 @@ mode.addEventListener('click', () => {
     p[0].classList.add('el-dark')
     p[1].classList.add('el-dark')
     p[2].classList.add('el-dark')
-    // p[3].classList.add('el-dark')
+    p[3].classList.add('el-dark')
     mode.innerHTML = 'Light'
   } else {
     body.classList.remove('dark')
@@ -386,10 +387,23 @@ mode.addEventListener('click', () => {
     p[0].classList.remove('el-dark')
     p[1].classList.remove('el-dark')
     p[2].classList.remove('el-dark')
+    p[3].classList.remove('el-dark')
     // p[3].classList.remove('el-dark')
     mode.innerHTML = 'Dark'
   }
 })
+
+
+// appearing the instructing text
+const instructingText = document.getElementById('learn-text')
+const howToPlayBtn = document.getElementById('how-to-play')
+howToPlayBtn.addEventListener('click', () => {
+  instructingText.style.display = 'block'
+  setInterval(() => {
+    instructingText.style.display = 'none'
+  }, 5000)
+})
+
 
 // const switchTheme = (event) => {
 //   if (event.target.checked) {

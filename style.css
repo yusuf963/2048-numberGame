@@ -170,6 +170,22 @@ footer{
 .control-container{
 display: none;
 }
+.div-text{
+  display: flex;
+  justify-content:flex-end;
+  margin-right:8vw;
+  margin-bottom: 1vh;
+}
+.learn-text{
+  position: absolute;
+  display:none;
+  text-align:center;
+  width:30%;
+  height: 10%;
+  background-color:rgba(0, 0, 0, 0.1);
+  border-radius:8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 /* grid container ends */
 /* media queries */
 
@@ -228,6 +244,7 @@ display: none;
   .how-to-play{
     font-size:10px;
   }
+  
   .white{
     background-color: #DEDACB;
   }
