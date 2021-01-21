@@ -19,7 +19,7 @@ const left = document.getElementById('left')
 const intervalId = setInterval(() => {
   alert('Dear user, ite been infront of the screen for 5 minetus, its very recomended to take a 20 second break to keep your eyes in health ')
 
-}, 5000)
+}, 500900)
 //storing user data 
 //Name
 const userName = prompt('Hi, please write you name')
