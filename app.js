@@ -6,6 +6,11 @@ const camAudio = document.getElementById('cam-audio')
 const h4 = document.getElementById('user-name')
 const startGame = document.getElementById('start-game')
 const throwingTwo = document.getElementById('throwing-two')
+// make control for mobile devices
+const up = document.getElementById('up')
+const down = document.getElementById('down')
+const right = document.getElementById('right')
+const left = document.getElementById('left')
 //changeIt.style.visibility = 'hidden';
 
 //storing user data 
@@ -158,7 +163,6 @@ button.addEventListener('click', () => {
         storedScore = points
       }
     }
-
   }
   // adding the sum to the closest tile to the edge (with the sliding flow)
   function sumColTiles() {
@@ -217,7 +221,6 @@ button.addEventListener('click', () => {
       if (Number(gridTiles[i].innerHTML) === 32) {
         if (count === 0) {
           alert('wow you reached high number, press ok to take a photo and continue playing, don\'t forget to simle🥳')
-
           camAudio.play()
           score.classList.add('flashing')
         }
@@ -306,6 +309,53 @@ button.addEventListener('click', () => {
     takingPic()
     localStorage.setItem('dataPoints', storedScore)
   }
+  // adding control for mobile
+  up.addEventListener('click', () => {
+    building4ArraysToUp()
+    sumColTiles()
+    adding2()
+    changeTileColor()
+    audio.play()
+    win()
+    lose()
+    takingPic()
+    localStorage.setItem('dataPoints', storedScore)
+  })
+  down.addEventListener('click', () => {
+    building4ArraysToDown()
+    sumColTiles()
+    adding2()
+    changeTileColor()
+    audio.play()
+    win()
+    lose()
+    takingPic()
+    localStorage.setItem('dataPoints', storedScore)
+  })
+  right.addEventListener('click', () => {
+    building4ArraysToRight()
+    sumRowTiles()
+    adding2()
+    throwingTwo.play()
+    changeTileColor()
+    audio.play()
+    win()
+    lose()
+    takingPic()
+    localStorage.setItem('dataPoints', storedScore)
+  })
+  left.addEventListener('click', () => {
+    building4ArraysToLeft()
+    sumRowTiles()
+    adding2()
+    changeTileColor()
+    audio.play()
+    win()
+    lose()
+    takingPic()
+    localStorage.setItem('dataPoints', storedScore)
+  })
+
   alert('your last Score was ' + localStorage.dataPoints + ', try to beat it this time')
 })
 
@@ -313,7 +363,6 @@ button.addEventListener('click', () => {
 const mode = document.getElementById('mode')
 const body = document.querySelector('body')
 const p = document.querySelectorAll('p')
-console.log(p)
 mode.addEventListener('click', () => {
   if (mode.innerHTML === 'Dark') {
     body.classList.add('dark')
@@ -322,9 +371,8 @@ mode.addEventListener('click', () => {
     p[0].classList.add('el-dark')
     p[1].classList.add('el-dark')
     p[2].classList.add('el-dark')
-    p[3].classList.add('el-dark')
+    // p[3].classList.add('el-dark')
     mode.innerHTML = 'Light'
-
   } else {
     body.classList.remove('dark')
     score.classList.remove('el-dark')
@@ -332,7 +380,7 @@ mode.addEventListener('click', () => {
     p[0].classList.remove('el-dark')
     p[1].classList.remove('el-dark')
     p[2].classList.remove('el-dark')
-    p[3].classList.remove('el-dark')
+    // p[3].classList.remove('el-dark')
     mode.innerHTML = 'Dark'
   }
 })

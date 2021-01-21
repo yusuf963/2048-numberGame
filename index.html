@@ -6,13 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" /> -->
-
   <link rel="stylesheet" href="style.css">
   <title>2048 Game</title>
 </head>
 
 <body>
-
   <!-- switch theme -->
   <button id="mode" type="button">Dark</button>
   <!-- switch theme ends -->
@@ -39,9 +37,9 @@
       <div class="dropdown-menu" id="dropdown-menu4" role="menu">
         <div class="dropdown-content">
           <div class="dropdown-item">
-            <p>Use your arrow keys to move the tiles.<br> Tiles with the same number merge into one<br> when they touch.
+            <!-- <p>Use your arrow keys to move the tiles.<br> Tiles with the same number merge into one<br> when they touch.
               Add
-              them up to reach 2048!</p>
+              them up to reach 2048!</p> -->
           </div>
         </div>
       </div>
@@ -50,6 +48,15 @@
   </div>
   <!-- grid container start -->
   <div class="grid-container" id="grid-container"></div>
+  <div class="control-up">
+    <button id="up" class="up">Up</button>
+  </div>
+  <div id="control" class="control">
+
+    <button id="left" class="left">Left</button>
+    <button id="down" class="down">Down</button>
+    <button id="right" class="right">Right</button>
+  </div>
   <footer>
     <p>Sound from Zapsplat.com</p>
     <p>Developed by M.Yusuf(GA Student2021), inspired by 2048 Original</p>
