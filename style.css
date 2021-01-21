@@ -167,11 +167,17 @@ footer{
   font-size:12px;
   height: 30px;
 }
-
+.control-container{
+display: none;
+}
 /* grid container ends */
 /* media queries */
 
 @media only screen and (max-width: 500px) {
+  /* mobile control */
+  .control-container{
+    display:block
+  }
   .banner{
     max-width: 90vw;
     margin:50px auto;
