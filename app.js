@@ -6,7 +6,6 @@ const camAudio = document.getElementById('cam-audio')
 const h4 = document.getElementById('user-name')
 const startGame = document.getElementById('start-game')
 const throwingTwo = document.getElementById('throwing-two')
-console.log(throwingTwo)
 //changeIt.style.visibility = 'hidden';
 
 //storing user data 
@@ -36,7 +35,6 @@ function adding2ToTheOpeningBoard(arr) {
     startGame.play()
   } else {
     adding2ToTheOpeningBoard([2, 4])
-    startGame.play()
   }
 }
 function adding2() {
