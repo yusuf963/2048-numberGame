@@ -48,6 +48,7 @@ function adding2ToTheOpeningBoard(arr) {
     adding2ToTheOpeningBoard([2, 4])
   }
 }
+//adding 2 during the game
 function adding2() {
   randomTile = gridTiles[Math.floor(Math.random() * gridTiles.length)]
   if (randomTile.innerHTML === '0') {
@@ -221,7 +222,7 @@ button.addEventListener('click', () => {
       slidingDown()
     }
   }
-
+  //notifying user of a score level and play some effect
   function takingPic() {
     for (let i = 0; i < gridTiles.length; i++) {
       if (Number(gridTiles[i].innerHTML) === 32) {
@@ -234,7 +235,7 @@ button.addEventListener('click', () => {
       }
     }
   }
-
+  // coloring the tile based on the tile inner number
   function changeTileColor() {
     for (let i = 0; i < gridTiles.length; i++) {
       if (Number(gridTiles[i].innerHTML) === 8) {
@@ -269,6 +270,8 @@ button.addEventListener('click', () => {
       }
     }
   }
+
+  //event listener to control slidiing the tils based in user input
   document.addEventListener('keyup', sliding)
   function slidingRight() {
     building4ArraysToRight()
@@ -388,11 +391,9 @@ mode.addEventListener('click', () => {
     p[1].classList.remove('el-dark')
     p[2].classList.remove('el-dark')
     p[3].classList.remove('el-dark')
-    // p[3].classList.remove('el-dark')
     mode.innerHTML = 'Dark'
   }
 })
-
 
 // appearing the instructing text
 const instructingText = document.getElementById('learn-text')
@@ -403,24 +404,3 @@ howToPlayBtn.addEventListener('click', () => {
     instructingText.style.display = 'none'
   }, 5000)
 })
-
-
-// const switchTheme = (event) => {
-//   if (event.target.checked) {
-//     localStorage.setItem('theme', 'dark')
-//     darkMode()
-//   } else {
-//     localStorage.setItem('theme', 'light')
-//     lightMode()
-//   }
-// }
-
-// Event Listenre
-//localstorage
-// const currentTheme = localStorage.getItem('theme')
-// if (currentTheme)
-//   document.documentElement.setAttribute('data-theme', currentTheme)
-// if (currentTheme === 'dark') {
-//   toggleSwitch.checked = true
-//   darkMode()
-// }
