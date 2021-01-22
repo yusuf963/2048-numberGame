@@ -34,7 +34,7 @@ for (let i = 0; i < width * width; i++) {
   tile.classList.add('tile-styled')
   grid.append(tile)
   gridTiles.push(tile)
-}```js
+}```
 
 
     
