@@ -16,7 +16,7 @@ Given a list of options from GA, I chose to re-create the classic game **2048**.
 - **Deploy your game online**, where the rest of the world can access it
 - Use **semantic markup** for HTML and CSS (adhere to best practices)
 
-## Technologies used ![Sock](/images/sock.png)
+## Technologies used
 
 - HTML
 - CSS
@@ -194,8 +194,8 @@ howToPlayBtn.addEventListener('click', () => {
   ````
   
   ## Screenshots
-  ![Start screen](/img/opening-board.png)
-  ![While Game on Going](/img/whilePlaying.png)
+  ![Start screen](./img/opening-board.png)
+  ![While Game on Going](./img/whilePlaying.png)
   
   ## Bugs
   I just want to remove the Zeros from the grid tile
