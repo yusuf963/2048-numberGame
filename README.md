@@ -35,7 +35,7 @@ for (let i = 0; i < width * width; i++) {
   grid.append(tile)
   gridTiles.push(tile)
 }
-    ``` 
+
     
     
 
