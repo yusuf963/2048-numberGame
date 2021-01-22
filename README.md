@@ -27,7 +27,7 @@ Given a list of options from GA, I chose to re-create the classic game **2048**.
 ### Board layout
 - I decided to break to solve the problem into three major parts, and every part into multible sub part
 - for the openeing gam board I decided to render the grid first then through two number(2-4)so I build a for loop to render the 16 tile and append it into the parent div 
-    ```
+    ```js
 for (let i = 0; i < width * width; i++) {
   tile = document.createElement('div')
   tile.innerHTML = 0
