@@ -228,8 +228,8 @@ button.addEventListener('click', () => {
       if (Number(gridTiles[i].innerHTML) === 32) {
         if (count === 0) {
           alert('wow you reached high number, press ok to take a photo and continue playing, don\'t forget to simle🥳')
-          camAudio.play()
-          score.classList.add('flashing')
+          // camAudio.play()
+          // score.classList.add('flashing')
         }
         count++
       }
